@@ -1,5 +1,5 @@
 # Stickerfy
-
+https://travis-ci.org/ashraf2033/stickerfy.svg?branch=master
 
 ### Run the application locally
 
