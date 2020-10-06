@@ -16,6 +16,11 @@ describe('Shopping cart', function() {
         "title": "Happy",
         "description": "Happy",
         "price":5});
+      product1 = new Product({
+        "imagePath": "https://buildahead.com/wp-content/uploads/2017/02/happy-emoji-smaller.png",
+        "title": "Sad",
+        "description": "Sad",
+        "price":3});
     });
 
     it('adds a sticker to the cart', function() {
@@ -41,5 +46,39 @@ describe('Shopping cart', function() {
     it('returns an empty array', function() {
       assert.deepEqual(cart.generateArray(),[]);
     });
+
+    it('returns an array with one item', function() {
+      cart.add(product, product.id)
+      assert.equal(cart.generateArray().length,1);
+    });
+
+    it('returns an array with two items', function() {
+      cart.add(product, product.id)
+      cart.add(product1, product1.id)
+      assert.equal(cart.generateArray().length,2);
+    });
+    it('returns an empty array after adding 2 products', function() {
+      cart.add(product, product.id)
+      cart.add(product1, product1.id)
+      assert.equal(cart.generateArray().length,2);
+      cart.removeItem(product.id);
+      cart.removeItem(product1.id);
+      assert.deepEqual(cart.generateArray(),[]);
+
+    });
+
+    it('adds 2 stickers to the cart with total of 8', function() {
+      cart.add(product, product.id);
+      cart.add(product1, product1.id);
+      assert.equal(cart.totalPrice,8);
+    });
+
+      it('adds 2 stickers from the same type to the cart then reduce it by one', function() {
+        cart.add(product, product.id);
+        assert.equal(cart.generateArray().length,1);
+        cart.reduceByOne(product.id);
+        assert.deepEqual(cart.generateArray(),[]);
+    });
+
   });
 });

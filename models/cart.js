@@ -30,7 +30,7 @@ module.exports = function Cart(oldCart) {
         this.totalPrice -= this.items[id].price;
         delete this.items[id];
     };
-    
+
     this.generateArray = function() {
         var arr = [];
         for (var id in this.items) {
