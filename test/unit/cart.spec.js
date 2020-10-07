@@ -79,6 +79,11 @@ describe('Shopping cart', function() {
         cart.reduceByOne(product.id);
         assert.deepEqual(cart.generateArray(),[]);
     });
-
+    it('removes 1 sticker from the cart', function() {
+      cart.add(product, product.id);
+      cart.add(product, product.id);
+      cart.reduceByOne(product.id);
+      assert.equal(cart.totalPrice, 5);
+    });
   });
 });
