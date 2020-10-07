@@ -1,6 +1,5 @@
 # Stickerfy
-
-
+[![Build Status](https://travis-ci.org/ashraf2033/stickerfy.svg?branch=master)](https://travis-ci.org/ashraf2033/stickerfy)
 ### Run the application locally
 
 #### Prerequisites
